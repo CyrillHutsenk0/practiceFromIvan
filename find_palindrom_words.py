@@ -6,25 +6,22 @@ while len(con) <= 0:
 
 def palindrom(sentence):
     structure = sentence.lower().split()
-    rezalt = []
-    newlist = []
-    dublicate = []
+    rezalt, newlist, dublicate = [], [], []
     for elem in structure:
         elem_list = list(elem)
-        copy_el_ls = elem_list.copy()
-        copy_el_ls.reverse()
-        if elem_list == copy_el_ls:
+        copy_el_ls_rev = elem_list[::-1]
+        if elem_list == copy_el_ls_rev:
             str_elem = elem_list
             convert_el_ls = ''.join(map(str, str_elem))
             rezalt.append(convert_el_ls)
-    if bool(rezalt) is False:
-        return print("We dont't found polidrom")
+    if not rezalt:
+        return "We dont't found polidrom"
     for i in rezalt:
         if i not in newlist:
             newlist.append(i)
         else:
             dublicate.append(i)
-    return print(f"We found polindrom: {newlist}")
+    return f"We found polindrom: {newlist}"
 
 
-palindrom(con)
+print(palindrom(con))
